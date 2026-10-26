@@ -10,191 +10,340 @@
 
   <meta
     name="description"
-    content="Contactos de WhatsApp de Remises Umepay"
+    content="Traslados Umepay. Remises en Umepay, Valle de Calamuchita, Córdoba."
   >
 
-  <title>Remises Umepay</title>
+  <title>Traslados Umepay</title>
 
   <style>
+    :root {
+      --fondo: #f4f0df;
+      --tarjeta: #f8f3e7;
+      --tarjeta-contacto: #e6e9dc;
+      --verde: #183d32;
+      --texto: #171714;
+      --texto-suave: #625f54;
+      --linea: #bdb6a2;
+      --boton: #171717;
+      --blanco: #ffffff;
+    }
+
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
       min-height: 100vh;
-      padding: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #ffffff;
+      padding: 22px 16px;
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+      color: var(--texto);
       background:
         linear-gradient(
-          145deg,
-          #12232e 0%,
-          #1f4b5a 55%,
-          #2c6975 100%
+          180deg,
+          #f8f6ed 0%,
+          var(--fondo) 100%
         );
     }
 
-    .tarjeta {
+    .pagina {
       width: 100%;
-      max-width: 430px;
-      padding: 38px 26px 30px;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.97);
-      color: #18333d;
-      border-radius: 24px;
-      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+      max-width: 480px;
+      margin: 0 auto;
+      overflow: hidden;
+      background: var(--tarjeta);
+      border: 1px solid rgba(24, 61, 50, 0.18);
+      border-radius: 30px;
+      box-shadow:
+        0 16px 45px rgba(47, 53, 42, 0.13);
     }
 
-    .icono {
-      width: 76px;
-      height: 76px;
-      margin: 0 auto 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: #25d366;
-      color: #ffffff;
-      font-size: 36px;
-      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+    .encabezado {
+      padding: 22px 22px 0;
+      text-align: center;
+    }
+
+    .imagen-principal {
+      position: relative;
+      width: 100%;
+      height: 245px;
+      overflow: hidden;
+      border-radius: 24px;
+      background:
+        linear-gradient(
+          180deg,
+          #dde1c9,
+          #b8c49c
+        );
+    }
+
+    .imagen-principal img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .imagen-principal::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.05),
+          rgba(20, 43, 34, 0.08)
+        );
+      pointer-events: none;
+    }
+
+    .contenido-encabezado {
+      padding: 24px 8px 0;
     }
 
     h1 {
       margin: 0;
-      font-size: 30px;
-      line-height: 1.2;
-      color: #163640;
+      color: var(--verde);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: 35px;
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
     }
 
     .subtitulo {
-      margin: 12px 0 28px;
-      color: #607780;
-      font-size: 16px;
-      line-height: 1.5;
+      margin: 16px 0 0;
+      color: var(--texto-suave);
+      font-size: 22px;
+      line-height: 1.45;
     }
 
-    .boton {
+    .ubicacion {
+      display: block;
+      margin-top: 5px;
+    }
+
+    .separador {
+      width: calc(100% - 44px);
+      height: 1px;
+      margin: 34px auto 0;
+      background: var(--linea);
+    }
+
+    .contactos {
+      padding: 30px 22px 12px;
+    }
+
+    .pregunta {
+      margin: 0 0 25px;
+      text-align: center;
+      color: #272720;
+      font-size: 23px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .contacto {
+      margin-bottom: 18px;
+      padding: 20px 17px 17px;
+      background: var(--tarjeta-contacto);
+      border: 1px solid rgba(24, 61, 50, 0.05);
+      border-radius: 22px;
+    }
+
+    .nombre {
+      margin: 0 0 14px 3px;
+      color: var(--texto);
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .boton-whatsapp {
       width: 100%;
-      margin: 14px 0;
-      padding: 17px 18px;
+      min-height: 64px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 11px;
-      border: 2px solid transparent;
-      border-radius: 14px;
-      background: #25d366;
-      color: #ffffff;
+      gap: 13px;
+      padding: 15px 18px;
+      color: var(--blanco);
+      background: var(--boton);
+      border: none;
+      border-radius: 999px;
       font-size: 18px;
-      font-weight: 700;
+      font-weight: 600;
+      line-height: 1.2;
       text-decoration: none;
-      box-shadow: 0 7px 15px rgba(37, 211, 102, 0.22);
       transition:
-        transform 0.2s ease,
-        background-color 0.2s ease,
-        box-shadow 0.2s ease;
+        transform 0.18s ease,
+        background-color 0.18s ease,
+        box-shadow 0.18s ease;
     }
 
-    .boton:hover {
-      background: #1fbd59;
+    .boton-whatsapp:hover {
+      background: var(--verde);
       transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+      box-shadow:
+        0 8px 18px rgba(24, 61, 50, 0.22);
     }
 
-    .boton:active {
-      transform: translateY(0);
+    .boton-whatsapp:active {
+      transform: scale(0.98);
     }
 
-    .boton:focus-visible {
-      outline: 3px solid #163640;
-      outline-offset: 3px;
+    .boton-whatsapp:focus-visible {
+      outline: 3px solid #8ca184;
+      outline-offset: 4px;
     }
 
-    .whatsapp {
-      font-size: 22px;
+    .icono-whatsapp {
+      width: 26px;
+      height: 26px;
+      flex: 0 0 26px;
     }
 
-    .aclaracion {
-      margin: 26px 0 0;
-      padding-top: 20px;
-      border-top: 1px solid #dfe7e9;
-      color: #71868d;
-      font-size: 13px;
-      line-height: 1.5;
+    footer {
+      padding: 9px 22px 25px;
+      text-align: center;
+      color: var(--texto-suave);
+      font-size: 16px;
+      line-height: 1.45;
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 380px) {
       body {
-        padding: 18px;
+        padding: 10px;
       }
 
-      .tarjeta {
-        padding: 32px 20px 26px;
+      .pagina {
+        border-radius: 24px;
+      }
+
+      .encabezado,
+      .contactos {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
+      .imagen-principal {
+        height: 205px;
       }
 
       h1 {
-        font-size: 27px;
+        font-size: 29px;
       }
 
-      .boton {
-        font-size: 17px;
+      .subtitulo {
+        font-size: 19px;
+      }
+
+      .pregunta {
+        font-size: 21px;
+      }
+
+      .boton-whatsapp {
+        font-size: 16px;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="tarjeta">
-    <div class="icono" aria-hidden="true">
-      🚕
-    </div>
+  <main class="pagina">
+    <header class="encabezado">
+      <div class="imagen-principal">
+        <img
+          src="fondo-umepay.jfif"
+          alt="Paisaje serrano del Valle de Calamuchita"
+        >
+      </div>
 
-    <h1>Remises Umepay</h1>
+      <div class="contenido-encabezado">
+        <h1>Traslados Umepay</h1>
 
-    <p class="subtitulo">
-      Seleccioná un contacto para comunicarte directamente por WhatsApp.
-    </p>
+        <p class="subtitulo">
+          Remises · Umepay
+          <span class="ubicacion">
+            Valle <div class="separador"></div>
 
-    <a
-      class="boton"
-      href="https://wa.me/5493853051669"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Contactar a Amortina por WhatsApp"
-    >
-      <span class="whatsapp" aria-hidden="true">◉</span>
-      Contactar a Amortina
-    </a>
+    <section class="contactos">
+      <h2 class="pregunta">
+        ¿Con quién querés comunicarte?
+      </h2>
 
-    <a
-      class="boton"
-      href="https://wa.me/5491141904822"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Contactar a Celeste por WhatsApp"
-    >
-      <span class="whatsapp" aria-hidden="true">◉</span>
-      Contactar a Celeste
-    </a>
+      <article class="contacto">
+        <h3 class="nombre">Maga</h3>
 
-    <a
-      class="boton"
-      href="https://wa.me/5491150446724"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Contactar a Maga por WhatsApp"
-    >
-      <span class="whatsapp" aria-hidden="true">◉</span>
-      Contactar a Maga
-    </a>
+        https://wa.me/5491150446724
+          <svg
+            class="icono-whatsapp"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              fill="currentColor"
+              d="M12.04 2a9.84 9.84 0 0 0-8.43 14.91L2.05 22l5.22-1.52A9.92 9.92 0 1 0 12.04 2Zm0 17.93a8.03 8.03 0 0 1-4.1-1.12l-.3-.18-3.1.9.93-3.02-.2-.31a7.96 7.96 0 1 1 6.77 3.73Zm4.38-5.97c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19a7.22 7.22 0 0 1-1.33-1.66c-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.47-.39-.41-.54-.42h-.46a.88.88 0 0 0-.64.3c-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.1.16 1.51.1.46-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"
+            />
+          </svg>
 
-    <p class="aclaracion">
-      Al seleccionar un contacto se abrirá WhatsApp en el dispositivo.
-    </p>
+          Contactar por WhatsApp
+        </a>
+      </article>
+
+      <article class="contacto">
+        <h3 class="nombre">Amortina</h3>
+
+        https://wa.me/5493853051669
+          <svg
+            class="icono-whatsapp"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              fill="currentColor"
+              d="M12.04 2a9.84 9.84 0 0 0-8.43 14.91L2.05 22l5.22-1.52A9.92 9.92 0 1 0 12.04 2Zm0 17.93a8.03 8.03 0 0 1-4.1-1.12l-.3-.18-3.1.9.93-3.02-.2-.31a7.96 7.96 0 1 1 6.77 3.73Zm4.38-5.97c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19a7.22 7.22 0 0 1-1.33-1.66c-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.47-.39-.41-.54-.42h-.46a.88.88 0 0 0-.64.3c-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.1.16 1.51.1.46-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"
+            />
+          </svg>
+
+          Contactar por WhatsApp
+        </a>
+      </article>
+
+      <article class="contacto">
+        <h3 class="nombre">Celeste</h3>
+
+        https://wa.me/5491141904822
+          <svg
+            class="icono-whatsapp"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              fill="currentColor"
+              d="M12.04 2a9.84 9.84 0 0 0-8.43 14.91L2.05 22l5.22-1.52A9.92 9.92 0 1 0 12.04 2Zm0 17.93a8.03 8.03 0 0 1-4.1-1.12l-.3-.18-3.1.9.93-3.02-.2-.31a7.96 7.96 0 1 1 6.77 3.73Zm4.38-5.97c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19a7.22 7.22 0 0 1-1.33-1.66c-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.47-.39-.41-.54-.42h-.46a.88.88 0 0 0-.64.3c-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.1.16 1.51.1.46-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"
+            />
+          </svg>
+
+          Contactar por WhatsApp
+        </a>
+      </article>
+    </section>
+
+    <footer>
+      Traslados por las sierras · Consultas y reservas
+    </footer>
   </main>
 </body>
 </html>
